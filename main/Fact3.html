@@ -1,0 +1,31 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Fact #3
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        [A 2017 ICE] report tallies 1,531 homicide convictions and 355 homicide charges for
+        people taken into ICE custody in 2017 for deportation, some after completing
+        prison terms for their crimes. 
+    </p>
+
+    <p>
+        The convictions, however, represent crimes that took place over potentially several
+        decades, and not necessarily in 2017, according to immigration experts. There’s
+        also no accounting for how many of the homicide charges led to convictions.
+    </p>
+
+    <p>
+        Additionally, the figures may also include some legal permanent residents, a group
+        that’s much larger than those who are in the country illegally.
+    </p>
+
+    {% formfields %}
+
+    <button class="btn btn-primary" type="submit">Next</button>
+
+{% endblock %}

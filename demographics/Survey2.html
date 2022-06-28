@@ -1,0 +1,37 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Please answer the following 
+{% endblock %}
+
+{% block content %}
+
+    {% formfield 'immigrants_in_community' %}
+
+    <div id='wrapper' style="display: none;">
+        {% formfield 'amt_immigrants_in_community' %}
+    </div>
+
+    <button class="btn btn-primary" type="submit">Next</button>
+
+    <script>
+        $(document).ready(function(){
+
+            if ($('#id_immigrants_in_community').val() == 'Yes') {
+                $('#wrapper').show()
+            }
+
+            $("#id_immigrants_in_community").change(function(){
+
+                if( $(this).val() == 'Yes') {
+                    $('#wrapper').show()
+                } else {
+                    $('#id_amt_immigrants_in_community').val('')
+                    $('#wrapper').hide()
+                }
+            });
+        });
+    </script>
+
+{% endblock %}

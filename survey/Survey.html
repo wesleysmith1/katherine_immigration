@@ -1,0 +1,32 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Please answer the following questions
+{% endblock %}
+
+{% block content %}
+
+    {% formfield player.gender %}
+
+    {% formfield player.race %}
+
+    {% formfield player.marital_status %}
+
+    {% formfield player.birth_order %}
+
+    {% formfield player.religion %}
+    
+    {% formfield player.risk_willingness %}
+    
+    {% formfield player.others_intentions %}
+    
+    {% formfield player.willingness_to_share %}
+    
+    {% formfield player.willingness_to_punish %}
+    
+    {% formfield player.feedback %}
+
+    <button class="btn btn-primary" type="submit">Next</button>
+
+{% endblock %}

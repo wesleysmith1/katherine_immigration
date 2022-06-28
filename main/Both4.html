@@ -1,0 +1,41 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Politician’s Statement #4: 
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        "We will have more people enter our country illegally than were born in this country in one year."
+    </p>
+
+    <p>
+        Fact Check: According to the Centers for Disease Control and
+        Prevention, in 2017, more than 3.8 million births were recorded across
+        the country. The Department of Homeland Security offers estimates for
+        apprehension rates at the border and for how many people
+        successfully enter the country illegally, based in part on observable
+        data reported by agents on the ground and on statistical models. There
+        were an estimated 104,000 ‘got aways’ in 2017 (an 83% decrease from
+        615,000 in 2006) and 160,000 "total successful unlawful entries" in
+        2017.
+    </p>
+
+    <p>
+        The convictions, however, represent crimes that took place over potentially several
+        decades, and not necessarily in 2017, according to immigration experts. There’s also no
+        accounting for how many of the homicide charges led to convictions.
+    </p>
+
+    <p>
+        Additionally, the figures may also include some legal permanent residents, a group that’s
+        much larger than those who are in the country illegally.
+    </p>
+
+    {% formfields %}
+
+    <button class="btn btn-primary" type="submit">Next</button>
+
+{% endblock %}

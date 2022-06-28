@@ -1,0 +1,38 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Please answer the following 
+{% endblock %}
+
+{% block content %}
+
+    {% formfield 'religion' %}
+
+    <div id='wrapper' style="display: none;">
+        {% formfield 'religion_something_christian' %}
+    </div>
+
+    <script>
+
+        if ($('#id_religion').val() == 'Something else') {
+            $('#wrapper').show()
+        }
+
+        $(document).ready(function(){
+            $("#id_religion").change(function(){
+                $('#id_religion_something_christian-0.form-check-input').prop('checked', false)
+                $('#id_religion_something_christian-1.form-check-input').prop('checked', false)
+
+                if( $(this).val() == 'Something else') {
+                    $('#wrapper').show()
+                } else {
+                    $('#wrapper').hide()
+                }
+            });
+        });
+    </script>
+
+    <button class="btn btn-primary" type="submit">Next</button>
+
+{% endblock %}

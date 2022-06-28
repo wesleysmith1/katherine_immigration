@@ -1,0 +1,93 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Please answer the following questions
+{% endblock %}
+
+{% block content %}
+
+    {% formfield player.voted %}
+
+    {% formfield player.political_party %}
+
+    {% formfield player.democrat %}
+
+    {% formfield player.republican %}
+
+    {% formfield player.independent %}
+
+    <!-- ==================table question======================== -->
+
+    <p>
+        When it comes to politics, how would you describe each person or group:
+    </p>
+
+    <p style="margin-left: 50px;">
+        (1) Very liberal (2) Somewhat liberal (3) A little liberal (4) Neither liberal nor
+        conservative (5) A little conservative (6) Somewhat conservative (7) Very
+        conservative
+    </p>
+    
+    <hr>
+    <div class="container" style="alignment:center">
+        <div class="row" style="font-size: 12px;">
+            <div class="col-sm-3">
+            </div>
+            <div class="col-sm-1" style="text-align: left;">
+                Very liberal
+            </div>
+            <div class="col-sm-1" style="text-align: left;">
+                Somewhat liberal
+            </div>
+            <div class="col-sm-1" style="text-align: left;">
+                A little liberal
+            </div>
+            <div class="col-sm-1" style="text-align: left;">
+                Neither liberal nor conservative
+            </div>
+            <div class="col-sm-1" style="text-align: left;">
+                A little conservative
+            </div>
+            <div class="col-sm-1" style="text-align: left;">
+                Somewhat conservative
+            </div>
+            <div class="col-sm-1" style="text-align: left;">
+                Very conservative
+            </div>
+        </div>
+        <hr>
+    
+        <div class="row">
+            <div class="col-sm-3">
+                {{ form.describe_yourself.label }}
+            </div>
+            {% for choice in form.describe_yourself %}
+                <div class="col-sm-1" style="text-align: center;">{{ choice }}</div>
+            {% endfor %}
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                {{ form.describe_republicans.label }}
+            </div>
+            {% for choice in form.describe_republicans %}
+                <div class="col-sm-1" style="text-align: center;">{{ choice }}</div>
+            {% endfor %}
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                {{ form.describe_democrats.label }}
+            </div>
+            {% for choice in form.describe_democrats %}
+                <div class="col-sm-1" style="text-align: center;">{{ choice }}</div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+
+    <button class="btn btn-primary" type="submit">Next</button>
+
+{% endblock %}

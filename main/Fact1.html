@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Fact #1 
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        The [new H.R.1] bill does not permit voting by noncitizens in U.S. elections,
+        whether they’re in the country legally or not. A provision in the bill would require
+        automatic voter registration for people using services at government agencies.
+        However, that section says government agencies would only pass along a person’s
+        information for voter registration if they are citizens. [With the new H.R.1 bill,]
+        People would still be attesting that they are eligible to vote, with penalties for
+        lying, and it would still be up to election officials to verify eligibility.
+    </p>
+    <p>
+        The goal of the bill is to register eligible citizens.
+    </p>
+    
+    {% formfields %}
+
+    <button class="btn btn-primary" type="submit">Next</button>
+
+{% endblock %}

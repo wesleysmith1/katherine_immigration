@@ -1,0 +1,29 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Fact #4 
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        As a size reference, according to the Centers for Disease Control and Prevention, in
+        2017, more than 3.8 million births were recorded across the country.
+    </p>
+
+    <p>
+        The Department of Homeland Security offers estimates for apprehension rates at
+        the border and for how many people successfully enter the country illegally, based
+        in part on observable data reported by agents on the ground and on statistical
+        models. There were an estimated 104,000 ‘got aways’ in 2017 (an 83% decrease
+        from 615,000 in 2006) and 160,000 "total successful unlawful entries" in 2017.
+        After each statement, you will be asked to evaluate how persuasive
+        you found the statement.
+    </p>
+
+    {% formfields %}
+
+    <button class="btn btn-primary" type="submit">Next</button>
+
+{% endblock %}

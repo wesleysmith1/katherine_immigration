@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Voting Preferences Survey Instructions:
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        What is the likelihood you would support legislation: 
+    </p>
+
+    {{ formfield_errors 'voting_preferences7' }}
+
+    <p>
+        Increasing H-1B visas and immigration opportunities for highly skilled immigrants?
+        <select class="form-select" style="display: inline;" name="voting_preferences7">
+            <option value="">--------</option>
+            {{ for choice in form.voting_preferences7 }}
+                {{choice}}
+            {{ endfor }}
+        </select>
+    </p>
+
+    <button class="btn btn-primary" type="submit">Next</button>
+
+{% endblock %}

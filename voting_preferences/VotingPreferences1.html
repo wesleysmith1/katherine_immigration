@@ -1,0 +1,31 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Voting Preferences Survey Instructions:
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Thinking about the issue of immigration, how important of a
+        goal should the following be for immigration policy in the
+        U.S.? 
+    </p>
+
+    {{ formfield_errors 'voting_preferences1' }}
+
+    <p>
+        Increasing security along U.S.-Mexico border is a 
+        <select class="form-select" style="display: inline;" name="voting_preferences1">
+            <option value="">--------</option>
+            {{ for choice in form.voting_preferences1 }}
+                {{choice}}
+            {{ endfor }}
+        </select>
+        goal for U.S. immigration policy.
+    </p>
+
+    <button class="btn btn-primary" type="submit">Next</button>
+
+{% endblock %}

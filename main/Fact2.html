@@ -1,0 +1,31 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Fact #2
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Cash assistance for immigrants is very low, about 6 percent, but there are other programs from which
+        immigrants benefit, and [the politician] cited benefits broadly. A research center found that in 2012,
+        51 percent of immigrant-headed households (living here legally or illegally) reported to have used at
+        least one welfare program during the year.
+    </p>
+    <p>
+        That percentage includes a broad definition of welfare, including school lunch. Excluding subsidized
+        school lunches, welfare use for immigrant households would be 46 percent, according to the study.
+    </p>
+    <p>
+        The study included as welfare beneficiaries immigrant households in which a U.S.-born child is
+        benefitting from a welfare program. Another report from the National Academies of Sciences,
+        Engineering, and Medicine found that 45 percent of immigrant households had food assistance and
+        46 percent had Medicaid.
+    </p>
+    
+    {% formfields %}
+
+    <button class="btn btn-primary" type="submit">Next</button>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Voting Preferences Survey Instructions:
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        What is the likelihood you would support legislation: 
+    </p>
+
+    {{ formfield_errors 'voting_preferences6' }}
+
+    {% formfields %}
+
+    <button class="btn btn-primary" type="submit">Next</button>
+
+{% endblock %}

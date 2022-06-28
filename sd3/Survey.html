@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    For each of the following statements please indicate extend to which you agree with each statement.
+{% endblock %}
+{% block content %}
+
+<hr>
+
+
+{% for field in form %}
+<div>
+    <div style="font-size: 25px;">
+        {{ field.label }}
+    </div>
+    <div>
+        {{ field }}
+    </div>
+</div>
+<hr>
+{% endfor %}
+
+<div style="text-align:right">
+    {% next_button %}
+</div>
+
+{% endblock %}
