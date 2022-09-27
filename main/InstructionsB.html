@@ -2,28 +2,27 @@
 {% load otree %}
 
 {% block title %}
-    Instructions (both) 
+    Instructions
 {% endblock %}
 
 {% block content %}
 
     <p>
-        You will read several statements by current or recent politicians about
-        immigration. After each statement, you will then read information
-        from Politifact (a fact checking source) about the politician’s statement.
+        You will read several statements by current or recent politicians about immigration in the US. After each statement, you will be asked to evaluate how persuasive you found the statement.
     </p>
 
     <p>
-        Please read both the politician’s statement and the fact checked material carefully. 
-        After each statement, you will be asked to evaluate how persuasive you found the statement.
+        Then you will read several numbers and statistics regarding the politician’s statement provided by Politifact (a fact checking service). After reading the fact check, you will be asked how persuasive you find the politician’s statement after reading the fact checked information.
     </p>
 
     <p>
-        You will then be asked how persuasive you find the politician’s
-        statement after having read both the statement and the fact checked
-        information.
+        Please read all the material carefully.
     </p>
 
-    <button class="btn btn-primary" type="submit">Next</button>
+    <p>
+        <b><u>Reminder:</u> Approval of your payment is conditional on adherence to Prolific's policies, you paying attention, and completing the questions carefully.</b>
+    </p>
+
+    {% next_button %}
 
 {% endblock %}

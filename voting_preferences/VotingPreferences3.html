@@ -2,7 +2,7 @@
 {% load otree %}
 
 {% block title %}
-    Voting Preferences Survey Instructions:
+    Voting Preferences Survey:
 {% endblock %}
 
 {% block content %}
@@ -26,6 +26,6 @@
         goal for U.S. immigration policy.
     </p>
 
-    <button class="btn btn-primary" type="submit">Next</button>
+    {% next_button %}
 
 {% endblock %}

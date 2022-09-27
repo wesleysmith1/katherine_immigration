@@ -34,17 +34,17 @@ scale_choices = [
 class Player(BasePlayer):
     voting_preferences1 = models.IntegerField(
         choices=choices,
-        label="Increasing security along U.S.-Mexico border is a (blank) goal for U.S. immigration policy."
+        label="Increasing security along U.S.-Mexico border is a (blank)"
     )
 
     voting_preferences2 = models.IntegerField(
         choices=choices,
-        label="Establishing a way for immigrants here illegally to stay legally is a (blank) goal for U.S. immigration policy."
+        label="Establishing a way for immigrants here illegally to stay legally is a (blank)"
     )
 
     voting_preferences3 = models.IntegerField(
         choices=choices,
-        label="Taking in refugees escaping from war and violence is a (blank) goal for U.S. immigration policy."
+        label="Taking in refugees escaping from war and violence is a (blank)"
     )    
 
     voting_preferences4 = models.IntegerField(
@@ -54,40 +54,71 @@ class Player(BasePlayer):
 
     voting_preferences5 = models.IntegerField(
         choices=scale_choices,
-        label="What is the likelihood you would support legislation: Increasing immigration levels by 10%?",
+        label="Increasing immigration levels by 10%?",
     )
     
     voting_preferences6 = models.IntegerField(
         choices=scale_choices,
-        label="What is the likelihood you would support legislation: Simplifying the naturalization process for current illegal immigrants and low skilled immigrants?",
+        label="Simplifying the naturalization process for current illegal immigrants and low skilled immigrants?",
     )
 
     voting_preferences7 = models.IntegerField(
         choices=scale_choices,
-        label="What is the likelihood you would support legislation: Increasing H-1B visas and immigration opportunities for highly skilled immigrants?",
+        label="Increasing H-1B visas and immigration opportunities for highly skilled immigrants?",
     )
 
 
 # FUNCTIONS
+def creating_session(subsession: Subsession):
+    import random
+    questions = ['voting_preferences1', 'voting_preferences2', 'voting_preferences3', 'voting_preferences4']
+    for p in subsession.get_players():
+        p.participant.question_order = questions
+        random.shuffle(p.participant.question_order)
+        
+
 # PAGES
+class SurveyWelcome(Page):
+    pass
+
+class Instructions(Page):
+    def vars_for_template(self):
+        try:
+            control = self.participant.control
+        except:
+            control = False
+        return dict(control=control)
+
 class VotingPreferences1(Page):
     form_model = 'player'
     form_fields = ['voting_preferences1']
+
+    def get_form_fields(self):
+        return [self.participant.question_order[0]]
 
 
 class VotingPreferences2(Page):
     form_model = 'player'
     form_fields = ['voting_preferences2']
 
+    def get_form_fields(self):
+        return [self.participant.question_order[1]]
+
 
 class VotingPreferences3(Page):
     form_model = 'player'
     form_fields = ['voting_preferences3']
 
+    def get_form_fields(self):
+        return [self.participant.question_order[2]]
+
 
 class VotingPreferences4(Page):
     form_model = 'player'
     form_fields = ['voting_preferences4']
+
+    def get_form_fields(self):
+        return [self.participant.question_order[3]]
 
 
 class VotingPreferences5(Page):
@@ -105,4 +136,4 @@ class VotingPreferences7(Page):
     form_fields = ['voting_preferences7']
 
 
-page_sequence = [VotingPreferences1, VotingPreferences2, VotingPreferences3, VotingPreferences4, VotingPreferences5, VotingPreferences6, VotingPreferences7]
+page_sequence = [SurveyWelcome, Instructions, VotingPreferences1, VotingPreferences2, VotingPreferences3, VotingPreferences4, VotingPreferences5, VotingPreferences6, VotingPreferences7]
