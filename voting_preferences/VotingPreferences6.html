@@ -2,7 +2,7 @@
 {% load otree %}
 
 {% block title %}
-    Voting Preferences Survey Instructions:
+    Voting Preferences Survey:
 {% endblock %}
 
 {% block content %}
@@ -15,6 +15,6 @@
 
     {% formfields %}
 
-    <button class="btn btn-primary" type="submit">Next</button>
+    {% next_button %}
 
 {% endblock %}

@@ -2,7 +2,7 @@
 {% load otree %}
 
 {% block title %}
-    Voting Preferences Survey Instructions:
+    Voting Preferences Survey:
 {% endblock %}
 
 {% block content %}
@@ -13,12 +13,8 @@
 
     {{ formfield_errors 'voting_preferences5' }}
 
-    <p>
-        Increasing immigration levels by 10%?
-    </p>
-
     {% formfields %}
 
-    <button class="btn btn-primary" type="submit">Next</button>
+    {% next_button %}
 
 {% endblock %}

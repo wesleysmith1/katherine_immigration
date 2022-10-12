@@ -2,13 +2,13 @@
 {% load otree %}
 
 {% block title %}
-    Instructions (alt-facts):
+    Instructions:
 {% endblock %}
 
 {% block content %}
 
     <p>
-        You will read below several numbers and statistics about immigration.
+        You will read several statements by current or recent politicians about immigration in the US. Please read all the material carefully.
     </p>
 
     <p>
@@ -16,6 +16,10 @@
         you found the statement.
     </p>
 
-    <button class="btn btn-primary" type="submit">Next</button>
+    <p>
+        <b><u>Reminder:</u> Approval of your payment is conditional on adherence to Prolific's policies, you paying attention, and completing the questions carefully.</b>
+    </p>
+
+    {% next_button %}
 
 {% endblock %}

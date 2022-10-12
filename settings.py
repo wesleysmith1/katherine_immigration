@@ -3,7 +3,18 @@ from os import environ
 
 SESSION_CONFIGS = [
     dict(
-        name='full_experiment', app_sequence=['main', 'voting_preferences', 'big_five', 'sd3', 'political_survey', 'demographics'],
+        name='full_experiment',
+        app_sequence=[
+                'consent',
+                'main',
+                'voting_preferences',
+                'big_five',
+                'sd3',
+                'political_survey',
+                'demographics',
+                'debriefing',
+                'prolific_redirect',
+            ],
         num_demo_participants=1,
     ),
     dict(
@@ -23,6 +34,15 @@ SESSION_CONFIGS = [
     ),
     dict(
         name='demographics', app_sequence=['demographics'], num_demo_participants=1,
+    ),
+    dict(
+        name='consent', app_sequence=['consent'], num_demo_participants=1
+    ),
+    dict(
+        name='redirect', app_sequence=['prolific_redirect'], num_demo_participants=1
+    ),
+    dict(
+        name='debriefing', app_sequence=['debriefing'], num_demo_participants=1
     )
 ]
 
@@ -35,7 +55,7 @@ SESSION_CONFIG_DEFAULTS = dict(
     real_world_currency_per_point=1.00, participation_fee=0.00, doc=""
 )
 
-PARTICIPANT_FIELDS = []
+PARTICIPANT_FIELDS = ['control', 'question_order']
 SESSION_FIELDS = []
 
 # ISO-639 code

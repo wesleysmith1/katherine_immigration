@@ -2,7 +2,7 @@
 {% load otree %}
 
 {% block title %}
-    Voting Preferences Survey Instructions:
+    Voting Preferences Survey:
 {% endblock %}
 
 {% block content %}
@@ -13,16 +13,8 @@
 
     {{ formfield_errors 'voting_preferences7' }}
 
-    <p>
-        Increasing H-1B visas and immigration opportunities for highly skilled immigrants?
-        <select class="form-select" style="display: inline;" name="voting_preferences7">
-            <option value="">--------</option>
-            {{ for choice in form.voting_preferences7 }}
-                {{choice}}
-            {{ endfor }}
-        </select>
-    </p>
+    {% formfields %}
 
-    <button class="btn btn-primary" type="submit">Next</button>
+    {% next_button %}
 
 {% endblock %}

@@ -10,10 +10,16 @@
     <p>
         We are running a study of electoral behavior and attitudes toward immigration. This survey involves
         a series of questions about yourself and your political beliefs. You will also be asked a series of
-        questions on your political attitudes. You should be able to complete the survey in 10(??) minutes.
+        questions on your political attitudes. You should be able to complete the survey in 15 minutes.
         Your answers will remain anonymous, and we will only publish aggregate results of the study.
     </p>
 
-    <button class="btn btn-primary" type="submit">Next</button>
+    {% if control %}
+    <p>
+        <b><u>Reminder:</u> Approval of your payment is conditional on adherence to Prolific's policies, you paying attention, and completing the questions carefully.</b>
+    </p>
+    {% endif %}
+
+    {% next_button %}
 
 {% endblock %}

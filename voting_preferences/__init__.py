@@ -54,22 +54,33 @@ class Player(BasePlayer):
 
     voting_preferences5 = models.IntegerField(
         choices=scale_choices,
-        label="What is the likelihood you would support legislation: Increasing immigration levels by 10%?",
+        label="Increasing immigration levels by 10%?",
     )
     
     voting_preferences6 = models.IntegerField(
         choices=scale_choices,
-        label="What is the likelihood you would support legislation: Simplifying the naturalization process for current illegal immigrants and low skilled immigrants?",
+        label="Simplifying the naturalization process for current illegal immigrants and low skilled immigrants?",
     )
 
     voting_preferences7 = models.IntegerField(
         choices=scale_choices,
-        label="What is the likelihood you would support legislation: Increasing H-1B visas and immigration opportunities for highly skilled immigrants?",
+        label="Increasing H-1B visas and immigration opportunities for highly skilled immigrants?",
     )
 
 
 # FUNCTIONS
 # PAGES
+class SurveyWelcome(Page):
+    pass
+
+class Instructions(Page):
+    def vars_for_template(self):
+        try:
+            control = self.participant.control
+        except:
+            control = False
+        return dict(control=control)
+
 class VotingPreferences1(Page):
     form_model = 'player'
     form_fields = ['voting_preferences1']
@@ -105,4 +116,4 @@ class VotingPreferences7(Page):
     form_fields = ['voting_preferences7']
 
 
-page_sequence = [VotingPreferences1, VotingPreferences2, VotingPreferences3, VotingPreferences4, VotingPreferences5, VotingPreferences6, VotingPreferences7]
+page_sequence = [SurveyWelcome, Instructions, VotingPreferences1, VotingPreferences2, VotingPreferences3, VotingPreferences4, VotingPreferences5, VotingPreferences6, VotingPreferences7]
