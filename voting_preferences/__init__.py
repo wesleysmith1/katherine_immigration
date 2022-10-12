@@ -34,17 +34,17 @@ scale_choices = [
 class Player(BasePlayer):
     voting_preferences1 = models.IntegerField(
         choices=choices,
-        label="Increasing security along U.S.-Mexico border is a (blank)"
+        label="Increasing security along U.S.-Mexico border is a (blank) goal for U.S. immigration policy."
     )
 
     voting_preferences2 = models.IntegerField(
         choices=choices,
-        label="Establishing a way for immigrants here illegally to stay legally is a (blank)"
+        label="Establishing a way for immigrants here illegally to stay legally is a (blank) goal for U.S. immigration policy."
     )
 
     voting_preferences3 = models.IntegerField(
         choices=choices,
-        label="Taking in refugees escaping from war and violence is a (blank)"
+        label="Taking in refugees escaping from war and violence is a (blank) goal for U.S. immigration policy."
     )    
 
     voting_preferences4 = models.IntegerField(
@@ -69,14 +69,6 @@ class Player(BasePlayer):
 
 
 # FUNCTIONS
-def creating_session(subsession: Subsession):
-    import random
-    questions = ['voting_preferences1', 'voting_preferences2', 'voting_preferences3', 'voting_preferences4']
-    for p in subsession.get_players():
-        p.participant.question_order = questions
-        random.shuffle(p.participant.question_order)
-        
-
 # PAGES
 class SurveyWelcome(Page):
     pass
@@ -93,32 +85,20 @@ class VotingPreferences1(Page):
     form_model = 'player'
     form_fields = ['voting_preferences1']
 
-    def get_form_fields(self):
-        return [self.participant.question_order[0]]
-
 
 class VotingPreferences2(Page):
     form_model = 'player'
     form_fields = ['voting_preferences2']
-
-    def get_form_fields(self):
-        return [self.participant.question_order[1]]
 
 
 class VotingPreferences3(Page):
     form_model = 'player'
     form_fields = ['voting_preferences3']
 
-    def get_form_fields(self):
-        return [self.participant.question_order[2]]
-
 
 class VotingPreferences4(Page):
     form_model = 'player'
     form_fields = ['voting_preferences4']
-
-    def get_form_fields(self):
-        return [self.participant.question_order[3]]
 
 
 class VotingPreferences5(Page):
